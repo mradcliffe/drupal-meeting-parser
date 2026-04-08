@@ -1,0 +1,72 @@
+name: release
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    tags:
+      - "v*"
+    pull_request:
+      branches:
+        - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: lts/*
+          cache: 'npm'
+          cache-dependency-path: ./package.json
+        name: Setup Node
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build
+        run: npm build
+
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/drupal-meeting-parser-*.zip
+          if-no-files-found: error
+          overwrite: true
+
+  release:
+    if: github.ref_type == 'tag'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      -
+        name: Download artifacts
+        uses: actions/download-artifact@v8
+        with:
+          name: dist
+      -
+        run: ls drupal-meeting-parser-${{ github.ref_name }}.zip
+      -
+        run: mkdir drupal-meeting-parser
+      -
+        run: unzip drupal-meeting-parser-${{ github.ref_name }}.zip -d drupal-meeting-parser/
+      -
+        run: zip -r drupal-meeting-parser drupal-meeting-parser-${{ github.ref_name }}-unpacked.zip
+      -
+        name: Create release
+        uses: softprops/action-gh-release@v2.3.2
+        with:
+          files: "drupal-meeting-parser-*.zip"
+          token: ${{ secrets.GITHUB_TOKEN }}
+

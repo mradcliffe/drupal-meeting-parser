@@ -6,6 +6,16 @@
   "icons": {
     "128": "icon.png"
   },
+  "browser_specific_settings": {
+      "gecko": {
+          "strict_min_version": "65.0.0",
+          "id": "drupal-meeting-parser@example.com",
+          "data_collection_permissions": {
+              "required": ["websiteContent"],
+              "optional": []
+          }
+      }
+  },
   "content_scripts": [
     {
       "matches": ["https://*.slack.com/*"],
