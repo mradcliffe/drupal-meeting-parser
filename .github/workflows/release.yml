@@ -39,7 +39,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: dist
-          path: dist/drupal-meeting-parser-*.zip
+          path: dist/drupal_meeting_parser-*.zip
           if-no-files-found: error
           overwrite: true
 
@@ -56,17 +56,17 @@ jobs:
         with:
           name: dist
       -
-        run: ls drupal-meeting-parser-${{ github.ref_name }}.zip
+        run: ls drupal_meeting_parser-${{ github.ref_name }}.zip
       -
-        run: mkdir drupal-meeting-parser
+        run: mkdir drupal_meeting_parser
       -
-        run: unzip drupal-meeting-parser-${{ github.ref_name }}.zip -d drupal-meeting-parser/
+        run: unzip drupal_meeting_parser-${{ github.ref_name }}.zip -d drupal_meeting_parser/
       -
-        run: zip -r drupal-meeting-parser drupal-meeting-parser-${{ github.ref_name }}-unpacked.zip
+        run: zip -r drupal_meeting_parser drupal_meeting_parser-${{ github.ref_name }}-unpacked.zip
       -
         name: Create release
         uses: softprops/action-gh-release@v2.3.2
         with:
-          files: "drupal-meeting-parser-*.zip"
+          files: "drupal_meeting_parser-*.zip"
           token: ${{ secrets.GITHUB_TOKEN }}
 
