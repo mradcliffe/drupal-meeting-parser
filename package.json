@@ -4,7 +4,7 @@
   "description": "Dirty chrome extension to copy Drupal slack meeting threads to the clipboard.",
   "main": "index.js",
   "scripts": {
-    "lint": "web-ext lint -s src",
+    "lint": "web-ext lint -s .",
     "test": "npm run lint",
     "build": "web-ext build --ignore-files=dist node_modules package* --source-dir=. --artifacts-dir=dist --overwrite-dest"
   },
