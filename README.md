@@ -16,16 +16,14 @@ Crediting meeting participants is facilitated as well.
 
 2. Clone this repository to any location on your local computer.
 
-3. Extract the zip file into that directory.
-
-4. Use the "Load unpacked" option under Chrome Extensions to add this
+3. Use the "Load unpacked" option under Chrome Extensions to add this
    unpacked Chrome Extension to your browser. Pick the directory you checked
    this out to.
 
-5. A grayed out Drupal meeting parser icon will appear in your browser alongside
+4. A grayed out Drupal meeting parser icon will appear in your browser alongside
    the URL bar.
 
-6. Open the chatroom in Google Chrome. The icon will become blue and four
+5. Open the chatroom in Google Chrome. The icon will become blue and four
    bright yellow buttons should apear on the top of the page: Clear memory, 
    Add with credit, Add without credit and Copy to clipboard.
 
