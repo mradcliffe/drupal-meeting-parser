@@ -4,6 +4,3 @@ node_modules
 dist
 *.zip
 package-lock.json
-
-src/README.md
-src/LICENSE

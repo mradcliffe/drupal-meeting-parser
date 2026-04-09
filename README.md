@@ -9,14 +9,12 @@ Crediting meeting participants is facilitated as well.
 
 ## How to install
 
-1. Download the release zip file from the releases page.
-
 ### Google Chrome or Chromium
 
 1. Enable developer mode for Google Chrome Extensions. 
    See https://developer.chrome.com/extensions/faq#faq-dev-01
 
-2. Create a directory in any location on your local computer.
+2. Clone this repository to any location on your local computer.
 
 3. Extract the zip file into that directory.
 
@@ -33,11 +31,13 @@ Crediting meeting participants is facilitated as well.
 
 ### Firefox
 
-1. Use the "Install Add-on from File" option from the `about:addons` page.
+1. Download the release zip file from the releases page.
 
-2. A grayed out Drupal meeting parser icon will appear in your add-ons list.
+2. Use the "Install Add-on from File" option from the `about:addons` page.
 
-3. Open the chatroom in Firefox. Four bright yellow buttons should appear on
+3. A grayed out Drupal meeting parser icon will appear in your add-ons list.
+
+4. Open the chatroom in Firefox. Four bright yellow buttons should appear on
   top of the page: Clear memory, Add with credit, Add without credit, and
   Copy to clipboard.
 
