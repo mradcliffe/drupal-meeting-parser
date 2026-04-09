@@ -56,13 +56,11 @@ jobs:
         with:
           name: dist
       -
-        run: ls drupal_meeting_parser-${{ github.ref_name }}.zip
-      -
         run: mkdir drupal_meeting_parser
       -
-        run: unzip drupal_meeting_parser-${{ github.ref_name }}.zip -d drupal_meeting_parser/
+        run: unzip drupal_meeting_parser-*.zip -d drupal-meeting-parser
       -
-        run: zip -r drupal_meeting_parser drupal_meeting_parser-${{ github.ref_name }}-unpacked.zip
+        run: zip -r drupal_meeting_parser $('basename -s .zip drupal_meeting_parser-*.zip)-unpacked.zip
       -
         name: Create release
         uses: softprops/action-gh-release@v2.3.2
