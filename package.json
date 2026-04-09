@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "web-ext lint -s src",
     "test": "npm run lint",
-    "build": "web-ext build -s src -a dist --overwrite-dest"
+    "build": "copyfiles-ng -f README.md LICENSE src/ && web-ext build -s src -a dist --overwrite-dest"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/mdlutz24/drupal-meeting-parser#readme",
   "devDependencies": {
+    "copyfiles-ng": "^2.4.6",
     "web-ext": "^10.1.0"
   }
 }
