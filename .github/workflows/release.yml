@@ -14,11 +14,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # actions/checkout@93cb6ef
       - uses: actions/checkout@v5
         with:
           fetch-depth: 1
 
-      - uses: actions/setup-node@v6
+      # actions/setup-node@v6
+      - uses: actions/setup-node@48b55a0
         with:
           node-version: lts/*
           cache: 'npm'
@@ -35,7 +37,8 @@ jobs:
         run: npm run build
 
       - name: Archive artifacts
-        uses: actions/upload-artifact@v4
+        # actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8
         with:
           name: dist
           path: dist/drupal_meeting_parser-*.zip
@@ -51,14 +54,16 @@ jobs:
     steps:
       -
         name: Download artifacts
-        uses: actions/download-artifact@v8
+        # actions/download-artifact@v8
+        uses: actions/download-artifact@3e5f45b
         with:
           name: dist
       -
         run: ls drupal_meeting_parser-*.zip
       -
         name: Create release
-        uses: softprops/action-gh-release@v2.3.2
+        # softprops/action-gh-releasev3.0.0
+        uses: softprops/action-gh-release@b430933
         with:
           files: "drupal_meeting_parser-*.zip"
           token: ${{ secrets.GITHUB_TOKEN }}
